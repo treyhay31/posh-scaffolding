@@ -1,6 +1,6 @@
 $modulePathForUser = "$HOME/posh"
 
-if ( (Get-Variable -Name IsWindows).Value ) {
+if ( -not (Get-Variable -Name IsWindows).Value ) {
   Install-Module -Name WindowsCompatibility -Scope CurrentUser
 }
 
