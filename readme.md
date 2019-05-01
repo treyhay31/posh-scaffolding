@@ -4,5 +4,5 @@ Here are a few scripts and templates that will make writing modular powershell m
 
 ## TODO
 
-9. Figure out cross platform module paths
-9. Stuff...
+0. Figure out cross platform module paths
+0. Stuff...
