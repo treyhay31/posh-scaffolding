@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<plasterManifest
+  schemaVersion="1.1"
+  templateType="Item" xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
+  <metadata>
+    <name>MyMan</name>
+    <id>8eee64e0-f96f-4c19-9e1e-a0846e106dbb</id>
+    <version>0.0.1</version>
+    <title>TheFunOne</title>
+    <description>So fun</description>
+    <author>Me</author>
+    <tags></tags>
+  </metadata>
+  <parameters></parameters>
+  <content></content>
+</plasterManifest>
