@@ -6,6 +6,9 @@ Here are a few scripts and templates that will make writing modular powershell m
 
 ```PowerShell
 
+# After you've cloned
+.\Posh-Init.ps1 # I KNOW! This should be its own module
+
 # New Module!!
 New-Moddd "GG"
 
