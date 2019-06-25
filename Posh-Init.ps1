@@ -1,4 +1,12 @@
-$modulePathForUser = ($env:PSModulePath -Split ";")[0]
+function Get-ModulePath {
+  (((Get-ChildItem ($env:PSModulePath -Split ";")[0])[0].Parent).Parent).FullName
+}
+
+$modulePathForUser = Get-ModulePath
+
+mkdir @( 
+  "$modulePathForUser\MetaModule",
+  "$modulePathForUser\MetaFunction") -ErrorAction SilentlyContinue
 
 $myMan = @{
   Path            = "$modulePathForUser\plasterManifest.xml" 
@@ -23,7 +31,7 @@ function New-Moddd {
     [string]$version="0.0.1",
     [string]$author="Me"
   )
-  $modulePathForUser = ($env:PSModulePath -Split ";")[0]
+  $modulePathForUser = Get-ModulePath
   Invoke-Plaster -TemplatePath "$modulePathForUser\MetaModule" `
     -DestinationPath "$modulePathForUser\$moduleName" `
     -ModuleName $moduleName `
@@ -44,7 +52,7 @@ function New-Funccc {
     [string]$functionName,
     [string]$path=""
   )
-  $modulePathForUser = ($env:PSModulePath -Split ";")[0]
+  $modulePathForUser = Get-ModulePath
   Invoke-Plaster -TemplatePath "$modulePathForUser\MetaFunction" `
     -DestinationPath $modulePathForUser `
     -FunctionName $functionName `
@@ -64,7 +72,7 @@ function New-FuncInMod {
     [ValidateSet("Public", "Internal")]
     [string]$functionType="Public"
   )
-  $modulePathForUser = ($env:PSModulePath -Split ";")[0]
+  $modulePathForUser = Get-ModulePath
   $functionPath = "$modulePathForUser"
 
   if ($moduleName) {
