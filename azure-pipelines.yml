@@ -12,15 +12,9 @@ pool:
 steps:
 - script: echo Hello, Trey!
   displayName: 'Run a one-line script'
-
-# Download secure file
-# Download a secure file to the agent machine
-- task: DownloadSecureFile@1
-  name: mySecureFile # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
-  inputs:
-    secureFile: 'test.key'
-
-- script: |
-    echo Installing $(mySecureFile.secureFilePath)
-    cat $(mySecureFile.secureFilePath)
-  displayName: 'Testing the Securefile'
+- script: pwsh -Command {Install-Module PowerShellGet -Force}
+  displayName: 'Update powershellget'
+- script: pwsh -File publish.ps1
+  displayName: 'Build and Publish Module'
+  env:
+    nugetapikey: $(NugetAPIKey)
