@@ -13,7 +13,14 @@ steps:
 - script: echo Hello, Trey!
   displayName: 'Run a one-line script'
 
+# Download secure file
+# Download a secure file to the agent machine
+- task: DownloadSecureFile@1
+  name: mySecureFile # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+  inputs:
+    secureFile: 'test.key'
+
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    echo Installing $(mySecureFile.secureFilePath)
+    get-Content $(caCertificate.secureFilePath)
+  displayName: 'Testing the Securefile'
