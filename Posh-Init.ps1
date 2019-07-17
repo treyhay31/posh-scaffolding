@@ -32,7 +32,15 @@ function New-Moddd {
     [string]$author="Me"
   )
   $modulePathForUser = Get-ModulePath
-  Invoke-Plaster -TemplatePath "$modulePathForUser\MetaModule" `
+
+  "METAAA: $PSScriptroot\MetaModule" 
+  "modulePathForUser: $modulePathForUser"
+  "moduleName: $moduleName"
+  "moduleDesc: $moduleDesc"
+  "version: $version"
+  "author: $author"
+
+  Invoke-Plaster -TemplatePath "$PSScriptRoot\MetaModule" `
     -DestinationPath "$modulePathForUser\$moduleName" `
     -ModuleName $moduleName `
     -ModuleDesc $moduleDesc `
@@ -41,7 +49,7 @@ function New-Moddd {
     -Force
 }
 
-#New-Moddd "GG"
+New-Moddd "GG"
 
 #Invoke-Pester "$modulePathForUser\GG"
 
@@ -53,14 +61,14 @@ function New-Funccc {
     [string]$path=""
   )
   $modulePathForUser = Get-ModulePath
-  Invoke-Plaster -TemplatePath "$modulePathForUser\MetaFunction" `
+  Invoke-Plaster -TemplatePath "$PSScriptRoot\MetaFunction" `
     -DestinationPath $modulePathForUser `
     -FunctionName $functionName `
     -FunctionLocation $modulePathForUser `
     -Force
 }
 
-#New-Funccc "Say-NotSomething"
+New-Funccc "Say-NotSomething"
 
 function New-FuncInMod {
   param(
@@ -79,11 +87,11 @@ function New-FuncInMod {
     $functionPath = "$modulePathForUser\$moduleName\$functionType"
   } 
 
-  Invoke-Plaster -TemplatePath "$modulePathForUser\MetaFunction" `
+  Invoke-Plaster -TemplatePath "$PSScriptRoot\MetaFunction" `
     -DestinationPath $functionPath `
     -FunctionName $functionName `
     -FunctionLocation $functionPath `
     -Force
 }
 
-#New-FuncInMod "Run-Something" "GG" "Internal"
+New-FuncInMod "Run-Something" "GG" "Internal"
