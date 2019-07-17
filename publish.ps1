@@ -1,4 +1,5 @@
 $publishModuleSplat = @{
+    Name        = "GG"
     Path        = ".\ReleaseMe\GG"
     NuGetApiKey = $ENV:nugetapikey
     Verbose     = $true
