@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/itreyhayden/Posh-Scaffolding/_apis/build/status/treyhay31.posh-scaffolding?branchName=master)](https://dev.azure.com/itreyhayden/Posh-Scaffolding/_build/latest?definitionId=1&branchName=master)
 # Function Scaffolding
 
 Here are a few scripts and templates that will make writing modular powershell more pleasant.
