@@ -22,5 +22,5 @@ steps:
 
 - script: |
     echo Installing $(mySecureFile.secureFilePath)
-    get-Content $(caCertificate.secureFilePath)
+    cat $(caCertificate.secureFilePath)
   displayName: 'Testing the Securefile'
