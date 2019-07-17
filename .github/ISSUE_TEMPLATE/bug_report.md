@@ -4,7 +4,7 @@ about: Create a report to help us improve
 title: "[BUG] Fix meee"
 labels: bug
 assignees: treyhay31
-projects: 1
+project: 1
 
 ---
 
