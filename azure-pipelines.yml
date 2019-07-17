@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- script: echo Hello, Trey!
+  displayName: 'Run a one-line script'
+
+# Download secure file
+# Download a secure file to the agent machine
+- task: DownloadSecureFile@1
+  name: mySecureFile # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+  inputs:
+    secureFile: 'test.key'
+
+- script: |
+    echo Installing $(mySecureFile.secureFilePath)
+    cat $(mySecureFile.secureFilePath)
+  displayName: 'Testing the Securefile'
