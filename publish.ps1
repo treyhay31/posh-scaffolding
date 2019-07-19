@@ -22,7 +22,6 @@ Get-ChildItem ".\ReleaseMe\GG" -Recurse -File |
 "splat path? - $($publishModuleSplat.Path)"
 
 "Importing Module"
-Install-Module Pester
 Import-Module ".\ReleaseMe\GG"
 
 "Checking if the module already exists"
