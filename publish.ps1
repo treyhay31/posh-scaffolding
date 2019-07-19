@@ -19,6 +19,9 @@ $PSVersionTable
 Get-ChildItem ".\ReleaseMe\GG" -Recurse -File |
     Select-Object -Expand FullName
 
+"Importing Module"
+Import-Module $publishModuleSplat.Path
+
 "Installing PSScriptAnalyzer Module"
 Install-Module -Name PSScriptAnalyzer -Force
 
