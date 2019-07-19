@@ -21,7 +21,7 @@ ModuleVersion = '0.0.1'
 GUID = 'b94a2085-352a-4dac-980a-9e586be79edd'
 
 # Author of this module
-Author = 'Me'
+Author = 'Haydenz'
 
 # Company or vendor of this module
 CompanyName = 'Unknown'
@@ -98,16 +98,16 @@ PrivateData = @{
         # Tags = @()
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'http://www.apache.org/licenses/LICENSE-2.0'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/treyhay31/posh-scaffolding/'
 
         # A URL to an icon representing this module.
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = 'First Release'
 
     } # End of PSData hashtable
 
