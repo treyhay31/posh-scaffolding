@@ -51,7 +51,7 @@ Description = 'Great module...'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'Pester'; ModuleVersion = 'latest'})
+RequiredModules = @('Pester')
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
