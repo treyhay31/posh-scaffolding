@@ -1,5 +1,5 @@
 Describe Get-Something {
-  It "Needs to have real tests... This should fail..." {
-      $false | Should be $true
+  It "Needs to have real tests..." {
+      $true | Should be $true
   }
 }

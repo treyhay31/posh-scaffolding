@@ -30,19 +30,8 @@ function Get-Something
     [ValidateNotNullOrEmpty()] 
     [string]$computer="."  
   #>
-  [CmdletBinding(SupportsShouldProcess=$true)]  
   param (
-    [Parameter(Mandatory=$true, 
-      ValueFromPipeline=$true,  
-      ValueFromPipelineByPropertyName=$true)]
-    [ValidateSet("DEV", "STG", "PRD")] 
-    [string]$environment
-    ,[Parameter(
-        Mandatory=$true, 
-        ValueFromPipeline=$true,
-        ValueFromPipelineByPropertyName=$true)]
-    [ValidateScript({Test-Path $_ -PathType Any})] 
-    [string]$path
+   
   )  
   
   BEGIN{
@@ -50,10 +39,7 @@ function Get-Something
   }#begin 
   PROCESS{
 
-    if ($psCmdlet.ShouldProcess("## object ##", "## message ##")) { 
-      ## action goes here
-      ### allows you to use the -whatif param on this function
-    }
+    "Getting something..."
 
   }#process 
   END{

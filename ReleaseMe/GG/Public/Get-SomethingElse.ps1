@@ -30,19 +30,8 @@ function Get-SomethingElse
     [ValidateNotNullOrEmpty()] 
     [string]$computer="."  
   #>
-  [CmdletBinding(SupportsShouldProcess=$true)]  
   param (
-    [Parameter(Mandatory=$true, 
-      ValueFromPipeline=$true,  
-      ValueFromPipelineByPropertyName=$true)]
-    [ValidateSet("DEV", "STG", "PRD")] 
-    [string]$environment
-    ,[Parameter(
-        Mandatory=$true, 
-        ValueFromPipeline=$true,
-        ValueFromPipelineByPropertyName=$true)]
-    [ValidateScript({Test-Path $_ -PathType Any})] 
-    [string]$path
+    
   )  
   
   BEGIN{
@@ -50,9 +39,7 @@ function Get-SomethingElse
   }#begin 
   PROCESS{
 
-    if ($psCmdlet.ShouldProcess("## object ##", "## message ##")) { 
-      "WOKE!"
-    }
+    "WOKE!"
 
   }#process 
   END{
