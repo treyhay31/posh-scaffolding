@@ -1,4 +1,4 @@
-function Run-Something
+function Get-SomethingElse
 {
   <#
     .Synopsis
@@ -51,8 +51,7 @@ function Run-Something
   PROCESS{
 
     if ($psCmdlet.ShouldProcess("## object ##", "## message ##")) { 
-      ## action goes here
-      ### allows you to use the -whatif param on this function
+      "WOKE!"
     }
 
   }#process 
