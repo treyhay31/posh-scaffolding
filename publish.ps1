@@ -19,8 +19,11 @@ $PSVersionTable
 Get-ChildItem ".\ReleaseMe\GG" -Recurse -File |
     Select-Object -Expand FullName
 
+"splat path? - $($publishModuleSplat.Path)"
+
 "Importing Module"
-Import-Module $publishModuleSplat.Path
+Install-Module Pester
+Import-Module ".\ReleaseMe\GG"
 
 "Checking if the module already exists"
 try {
