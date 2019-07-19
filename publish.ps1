@@ -22,9 +22,18 @@ Get-ChildItem ".\ReleaseMe\GG" -Recurse -File |
 "Importing Module"
 Import-Module $publishModuleSplat.Path
 
+"Checking if the module already exists"
+try {
+    Find-Module -Repository PSGallery -Name GG
+}
+catch {
+    " The module does not exist!"    
+}
+
 "Installing PSScriptAnalyzer Module"
 Install-Module -Name PSScriptAnalyzer -Force
 
+"Checking for severe problems with the scripts"
 Invoke-ScriptAnalyzer ".\ReleaseMe\GG" -Recurse | ForEach-Object { 
     if ($_.Severity -eq "Warning") {
         "Error: Could not push"
