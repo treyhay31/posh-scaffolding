@@ -17,4 +17,4 @@ steps:
 - script: pwsh -File publish.ps1
   displayName: 'Build and Publish Module'
   env:
-    nugetapikey: $(NugetAPIKey)
+    nugetapikey: $(TreyNugetAPIKey)
