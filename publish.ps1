@@ -26,7 +26,7 @@ Import-Module ".\ReleaseMe\GG"
 
 "Checking if the module already exists"
 try {
-    Find-Module -Repository PSGallery -Name GG
+    Find-Module -Repository PSGallery -Name GG2
 }
 catch {
     " The module does not exist!"    
