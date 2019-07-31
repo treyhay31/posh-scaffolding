@@ -1,4 +1,4 @@
-function f {
+function Get-ModulePathHere {
   (((Get-ChildItem ($env:PSModulePath -Split ";")[0])[0].Parent).Parent).FullName
   # $paths = $env:PSModulePath -Split ";"
   # Write-Host "paths: $paths"
@@ -8,7 +8,7 @@ function f {
   # Write-Host "realPathParent: $realPathParent"
 }
 
-$modulePathForUser = Get-ModulePath
+$modulePathForUser = Get-ModulePathHere
 
 mkdir @( 
   "$modulePathForUser\MetaModule",
@@ -37,7 +37,7 @@ function New-Moddd {
     [string]$version="0.0.1",
     [string]$author="Me"
   )
-  $modulePathForUser = Get-ModulePath
+  $modulePathForUser = Get-ModulePathHere
 
   "METAAA: $PSScriptroot\MetaModule" 
   "modulePathForUser: $modulePathForUser"
@@ -66,7 +66,7 @@ function New-Funccc {
     [string]$functionName,
     [string]$path=""
   )
-  $modulePathForUser = Get-ModulePath
+  $modulePathForUser = Get-ModulePathHere
   Invoke-Plaster -TemplatePath "$PSScriptRoot\MetaFunction" `
     -DestinationPath $modulePathForUser `
     -FunctionName $functionName `
@@ -86,7 +86,7 @@ function New-FuncInMod {
     [ValidateSet("Public", "Internal")]
     [string]$functionType="Public"
   )
-  $modulePathForUser = Get-ModulePath
+  $modulePathForUser = Get-ModulePathHere
   $functionPath = "$modulePathForUser"
 
   if ($moduleName) {
