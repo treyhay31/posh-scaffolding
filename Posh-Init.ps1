@@ -1,5 +1,11 @@
 function Get-ModulePath {
   (((Get-ChildItem ($env:PSModulePath -Split ";")[0])[0].Parent).Parent).FullName
+  # $paths = $env:PSModulePath -Split ";"
+  # Write-Host "paths: $paths"
+  # $realPath = $paths[0]
+  # Write-Host "realPath: $realPath"
+  # $realPathParent = (((Get-ChildItem $realpath)[0].Parent).Parent).FullName
+  # Write-Host "realPathParent: $realPathParent"
 }
 
 $modulePathForUser = Get-ModulePath

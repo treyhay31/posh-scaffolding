@@ -10,11 +10,11 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-- script: echo Hello, Trey!
+- script: echo Pipeline
   displayName: 'Run a one-line script'
-- script: pwsh -Command {Install-Module PowerShellGet -Force}
-  displayName: 'Update powershellget'
-- script: pwsh -File publish.ps1
-  displayName: 'Build and Publish Module'
-  env:
-    nugetapikey: $(TreyNugetAPIKey)
+- script: pwsh -Command {Install-Module Plaster -Force}
+  displayName: 'Install Plaster'
+- script: pwsh -Command {Install-Module Pester -Force}
+  displayName: 'Install Pester'
+- script: pwsh -File test.ps1
+  displayName: 'Run test.ps1 script'
