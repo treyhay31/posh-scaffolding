@@ -16,5 +16,7 @@ steps:
   displayName: 'Install Plaster'
 - script: pwsh -Command {Install-Module Pester -Force}
   displayName: 'Install Pester'
+- script: pwsh -File Posh-Init.ps1
+  displayName: 'Run test.ps1 script'
 - script: pwsh -File test.ps1
   displayName: 'Run test.ps1 script'

@@ -1,4 +1,4 @@
-function Get-ModulePath {
+function f {
   (((Get-ChildItem ($env:PSModulePath -Split ";")[0])[0].Parent).Parent).FullName
   # $paths = $env:PSModulePath -Split ";"
   # Write-Host "paths: $paths"
@@ -101,3 +101,4 @@ function New-FuncInMod {
 }
 
 New-FuncInMod "Run-Something" "GG" "Internal"
+
