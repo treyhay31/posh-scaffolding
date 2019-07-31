@@ -3,6 +3,11 @@
 
 Here are a few scripts and templates that will make writing modular powershell more pleasant.
 
+# This is IT!!! The ULTIMATE!
+```{powershell}
+(New-Object System.Net.WebClient).DownloadFile("https://github.com/treyhay31/posh-scaffolding/archive/master.zip", "$($env:UserProfile)\Downloads\module.zip"); $env:PSModulePath -Split ";" | ForEach-Object { Expand-Archive -Path "$($env:UserProfile)\Downloads\module.zip" -Destination "$_\" -Force }
+```
+
 ## Develop it! (fix this nonsense)
 
 ```PowerShell
