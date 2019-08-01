@@ -13,9 +13,9 @@
   <parameters>
     <parameter name="FunctionName" type="text" prompt="Name of your Function" />
     <parameter name="FunctionLocation" type="text" prompt="Path to your function file" />
-    <parameter name="Path" type="choice" prompt="Add a paramater to the function for path" default='0'>
-      <choice label="&amp;Yes" help="Adds a default parameter for path" value="Yes" />
-      <choice label="&amp;No" help="Does not include path parameter" value="No" />
+    <parameter name="Params" type="choice" prompt="Do you even want parameters in this function?" default='1'>
+      <choice label="&amp;Yes" help="Keeps the param() syntax" value="Yes" />
+      <choice label="&amp;No" help="Removes the param() boilerplate code" value="No" />
     </parameter>
   </parameters>
   <content>

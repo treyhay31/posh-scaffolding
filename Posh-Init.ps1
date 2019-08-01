@@ -16,13 +16,13 @@ mkdir @(
 
 $myMan = @{
   Path            = "$modulePathForUser\plasterManifest.xml" 
-  TemplateName    = "MyMan" 
+  TemplateName    = "$env:UserName-manifest" 
   TemplateType    = "Item" 
   Id              = (New-Guid).Guid 
   TemplateVersion = "0.0.1" 
-  Title           = "TheFunOne" 
-  Description     = "So fun" 
-  Author          = "Me"
+  Title           = "$env:UserName's Module Builder" 
+  Description     = "Building modules up to '$env:UserName' standards" 
+  Author          = "$env:UserName"
 }
 
 $myMan
@@ -35,7 +35,7 @@ function New-Moddd {
     [string]$moduleName,
     [string]$moduleDesc="Great module...",
     [string]$version="0.0.1",
-    [string]$author="Me"
+    [string]$author=$env:UserName
   )
   $modulePathForUser = Get-ModulePathHere
 
@@ -55,7 +55,7 @@ function New-Moddd {
     -Force
 }
 
-New-Moddd "GG"
+New-Moddd "PSModuleBuilder"
 
 #Invoke-Pester "$modulePathForUser\GG"
 
@@ -74,7 +74,7 @@ function New-Funccc {
     -Force
 }
 
-New-Funccc "Say-NotSomething"
+# New-Funccc "Say-NotSomething"
 
 function New-FuncInMod {
   param(
@@ -100,5 +100,8 @@ function New-FuncInMod {
     -Force
 }
 
-New-FuncInMod "Run-Something" "GG" "Internal"
+New-FuncInMod "New-PsFunction" "PSModuleBuilder" "Public"
+New-FuncInMod "New-PsModule" "PSModuleBuilder" "Public"
 
+Copy-Item .\MetaFunction -Destination $modulePathForUser\PSModuleBuilder\Data -Recurse -Force
+Copy-Item .\MetaModule -Destination $modulePathForUser\PSModuleBuilder\Data -Recurse -Force

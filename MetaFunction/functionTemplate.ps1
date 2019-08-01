@@ -2,14 +2,19 @@
 "function $PLASTER_PARAM_FunctionName"
 %>
 {
+
   <#
     .Synopsis
       Short description
     .DESCRIPTION
       Long description
     .EXAMPLE
-      Example of how to use this cmdlet
-  #>
+    Example of how to use this cmdlet
+    #>
+<%
+  if ($PLASTER_PARAM_Params -eq 'Yes')
+  {
+@'
   <#
   [parameter(Position=0, 
     Mandatory=$true, 
@@ -38,22 +43,18 @@
       ValueFromPipeline=$true,  
       ValueFromPipelineByPropertyName=$true)]
     [ValidateSet("DEV", "STG", "PRD")] 
-    [string]$environment
-<%
-    if ($PLASTER_PARAM_Path -eq 'Yes')
-    {
-@'
-    ,[Parameter(
+    [string]$environment,
+    [Parameter(
         Mandatory=$true, 
         ValueFromPipeline=$true,
         ValueFromPipelineByPropertyName=$true)]
     [ValidateScript({Test-Path $_ -PathType Any})] 
     [string]$path
-'@
-    }
-%>
   )  
-  
+'@   
+  }
+%>
+    
   BEGIN{
 
   }#begin 
