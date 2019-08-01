@@ -100,8 +100,13 @@ function New-FuncInMod {
     -Force
 }
 
+New-FuncInMod "New-PsScript" "PSModuleBuilder" "Public"
 New-FuncInMod "New-PsFunction" "PSModuleBuilder" "Public"
 New-FuncInMod "New-PsModule" "PSModuleBuilder" "Public"
+New-FuncInMod "Set-PsModulePath" "PSModuleBuilder" "Public"
+New-FuncInMod "Get-PsModulePath" "PSModuleBuilder" "Public"
+New-FuncInMod "Get-UserPsModulePath" "PSModuleBuilder" "Private"
 
 Copy-Item .\MetaFunction -Destination $modulePathForUser\PSModuleBuilder\Data -Recurse -Force
-Copy-Item .\MetaModule -Destination $modulePathForUser\PSModuleBuilder\Data -Recurse -Force
+Copy-Item .\MetaModule   -Destination $modulePathForUser\PSModuleBuilder\Data -Recurse -Force
+Copy-Item .\MetaScript   -Destination $modulePathForUser\PSModuleBuilder\Data -Recurse -Force
